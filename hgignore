@@ -1,0 +1,7 @@
+syntax: regexp
+\.DS_Store
+.*~
+^\._
+^Icon.$
+\.py[co]$
+\.git
