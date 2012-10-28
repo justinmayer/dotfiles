@@ -1,0 +1,9 @@
+" .vimrc
+" Author: Justin Mayer <entroP@gmail.com>
+" Source: https://bitbucket.org/j/dotfiles/src/tip/vim/
+
+" Preamble ---------------------------------------------------------------------
+
+set nocompatible          " Use vim instead of vi settings; this must come first
+syntax on                 " Enable syntax highlighting
+filetype plugin indent on " Load filetype-specific indent and plugin files
