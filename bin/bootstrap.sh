@@ -32,9 +32,17 @@ if [ "$OS" = "darwin" ]; then
         test -L "$PROJECTS_HOME" || ln -s "$HOME/Dropbox/Projects" "$PROJECTS_HOME"
         test -L "$TOOLS_HOME" || ln -s "$HOME/Dropbox/Projects/dotfiles" "$TOOLS_HOME"
     fi
+
+    # Install fish and make it the default shell
+    if [ ! -f /usr/local/bin/fish ]; then
+        brew install fishfish
+        echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+        chsh -s /usr/local/bin/fish
+    fi
+
 fi
 
-mkdir -p $VIRTUALENVS_HOME
+mkdir -p $HOME/.config $VIRTUALENVS_HOME
 
 # Create .hgrc and .hgrc_local files if not present
 if [ ! -f ~/.hgrc ]; then
@@ -54,6 +62,7 @@ function ensure_link {
     test -L "$HOME/$2" || ln -s "$TOOLS_HOME/$1" "$HOME/$2"
 }
 
+ensure_link "fish"                             ".config/fish"
 ensure_link "hgignore"                         ".hgignore"
 ensure_link "vim"                              ".vim"
 ensure_link "vim/vimrc"                        ".vimrc"

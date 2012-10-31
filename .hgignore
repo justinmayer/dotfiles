@@ -1,0 +1,5 @@
+syntax: glob
+
+fish/completions
+fish/fish_history
+fish/fishd*
