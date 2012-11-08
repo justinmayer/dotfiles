@@ -1,0 +1,6 @@
+[extensions]
+color =
+progress =
+
+# Local settings
+%include ~/.hgrc_local

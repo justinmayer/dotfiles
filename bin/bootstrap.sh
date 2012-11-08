@@ -64,5 +64,6 @@ function ensure_link {
 
 ensure_link "fish"                             ".config/fish"
 ensure_link "hgignore"                         ".hgignore"
+ensure_link "hgrc"                             ".hgrc"
 ensure_link "vim"                              ".vim"
 ensure_link "vim/vimrc"                        ".vimrc"
