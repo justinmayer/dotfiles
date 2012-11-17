@@ -1,0 +1,5 @@
+" GUI options ------------------------------------------------------------------
+
+" Default size of window
+set columns=180
+set lines=50
