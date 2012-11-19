@@ -17,6 +17,9 @@ if [ "$OS" = "darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
     fi
 
+    # Install basic packages
+    brew update && brew install ssh-copy-id wget
+
     # Install Python with up-to-date OpenSSL
     if [ ! -f /usr/local/bin/python ]; then
         brew install python --with-brewed-openssl
@@ -28,7 +31,7 @@ if [ "$OS" = "darwin" ]; then
     $PYHOME/bin/pip install Mercurial hg-git virtualenv
 
     # If Dropbox is present, symlink the Projects contained within
-    if [ -d ~/Dropbox/Projects/dotfiles ]; then
+    if [ -d $HOME/Dropbox/Projects/dotfiles ]; then
         test -L "$PROJECTS_HOME" || ln -s "$HOME/Dropbox/Projects" "$PROJECTS_HOME"
         test -L "$TOOLS_HOME" || ln -s "$HOME/Dropbox/Projects/dotfiles" "$TOOLS_HOME"
     fi
