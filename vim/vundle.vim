@@ -8,6 +8,9 @@ Bundle 'gmarik/vundle'
 
 " Plugin bundles --------------------------------------------------------------
 
+" User interface
+Bundle 'twerth/ir_black'
+
 " Language syntax
 Bundle 'fish.vim'
 Bundle 'mutewinter/nginx.vim'
