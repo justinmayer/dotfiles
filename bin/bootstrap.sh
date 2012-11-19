@@ -39,10 +39,7 @@ if [ "$OS" = "darwin" ]; then
         echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
         chsh -s /usr/local/bin/fish
     fi
-
 fi
-
-mkdir -p $HOME/.config $VIRTUALENVS_HOME
 
 # Create .hgrc and .hgrc_local files if not present
 if [ ! -f ~/.hgrc ]; then
@@ -59,6 +56,13 @@ test -d $TOOLS_HOME || hg clone https://bitbucket.org/j/dotfiles $TOOLS_HOME
 
 # If ~/.hgrc isn't a symlink, move it out of the way so symlink can be created
 test -L $HOME/.hgrc || mv $HOME/.hgrc $HOME/.hgrc.bak
+
+# Create needed directories
+mkdir -p $HOME/.config $TOOLS_HOME/vim/bundle $VIRTUALENVS_HOME
+
+# Install Vundle
+test -d $TOOLS_HOME/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $TOOLS_HOME/vim/bundle/vundle
+SHELL=$(which sh) vim +BundleInstall +qall
 
 # Ensure symlinks
 function ensure_link {

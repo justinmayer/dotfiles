@@ -1,19 +1,11 @@
 " .vimrc
-" Author: Justin Mayer <entroP@gmail.com>
+" Author: Justin Mayer (@jmayer)
 " Source: https://bitbucket.org/j/dotfiles/src/tip/vim/
 
-" Preamble ---------------------------------------------------------------------
-
 set nocompatible          " Use vim instead of vi settings; this must come first
-syntax on                 " Enable syntax highlighting
+
+source ~/.vim/vundle.vim  " Plugins contained within are installed via Vundle
+
 filetype plugin indent on " Load filetype-specific indent and plugin files
 
-" Basic options ----------------------------------------------------------------
-
-set visualbell t_vb=      " Turn off bell: most annoying default ever created
-
-" Tabs and spaces --------------------------------------------------------------
-
-set shiftwidth=4          " Spaces to use for each indent step (>>, <<, etc.)
-set softtabstop=4         " Spaces to use for <tab> and <BS> editing operations
-set expandtab             " Use appropriate # of spaces for <tab> in insert mode
+source ~/.vim/config.vim  " Core configuration
