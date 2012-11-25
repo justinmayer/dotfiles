@@ -18,7 +18,10 @@ if [ "$OS" = "darwin" ]; then
     fi
 
     # Install basic packages
-    brew update && brew install ssh-copy-id wget
+    for pkg in ssh-copy-id wget
+    do
+        test -f /usr/local/bin/$pkg || brew install $pkg
+    done
 
     # Install Python with up-to-date OpenSSL
     if [ ! -f /usr/local/bin/python ]; then
