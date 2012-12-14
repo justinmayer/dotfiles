@@ -60,11 +60,11 @@ fi
 # Retrieve command-line tools (if Dropbox is not present)
 test -d $TOOLS_HOME || hg clone https://bitbucket.org/j/dotfiles $TOOLS_HOME
 
+# Create needed directories
+mkdir -p $HOME/.config/fish $TOOLS_HOME/vim/bundle $TOOLS_HOME/lib/hg $VIRTUALENVS_HOME
+
 # If ~/.hgrc isn't a symlink, move it out of the way so symlink can be created
 test -L $HOME/.hgrc || mv $HOME/.hgrc $HOME/.hgrc.bak
-
-# Create needed directories
-mkdir -p $HOME/.config $TOOLS_HOME/vim/bundle $VIRTUALENVS_HOME
 
 # Install Vundle
 test -d $TOOLS_HOME/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $TOOLS_HOME/vim/bundle/vundle
@@ -75,7 +75,8 @@ function ensure_link {
     test -L "$HOME/$2" || ln -s "$TOOLS_HOME/$1" "$HOME/$2"
 }
 
-ensure_link "fish"                             ".config/fish"
+ensure_link "fish/config.fish"                 ".config/fish/config.fish"
+ensure_link "fish/functions"                   ".config/fish/functions"
 ensure_link "hgignore"                         ".hgignore"
 ensure_link "hgrc"                             ".hgrc"
 ensure_link "vim"                              ".vim"
