@@ -31,7 +31,7 @@ if [ "$OS" = "darwin" ]; then
     fi
 
     # Install Mercurial, hg-git, and Virtualenv:
-    $PYHOME/bin/pip install Mercurial hg-git virtualenv
+    PIP_REQUIRE_VIRTUALENV="" $PYHOME/bin/pip install Mercurial hg-git virtualenv
 
     # If Dropbox is present, symlink the Projects contained within
     if [ -d $HOME/Dropbox/Projects/dotfiles ]; then

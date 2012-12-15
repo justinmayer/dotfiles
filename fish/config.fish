@@ -13,3 +13,8 @@ deduplicate PATH                                   # Clear duplicates in path
 set BROWSER open
 
 set -g -x ARCHFLAGS "-arch x86_64"
+
+# Python variables
+
+set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
+set -g -x PIP_REQUIRE_VIRTUALENV "true"
