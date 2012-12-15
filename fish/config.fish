@@ -12,7 +12,9 @@ deduplicate PATH                                   # Clear duplicates in path
 
 set BROWSER open
 
+set -g -x fish_greeting
 set -g -x ARCHFLAGS "-arch x86_64"
+set -g -x EDITOR vim
 
 # Python variables
 
