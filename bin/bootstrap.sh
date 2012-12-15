@@ -50,11 +50,11 @@ fi
 # Create .hgrc and .hgrc_local files if not present
 if [ ! -f ~/.hgrc ]; then
     echo -e "\nNo ~/.hgrc detected."
-    echo -e "\n[hostfingerprints]\nbitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b" > ~/.hgrc
-    echo -e "\n# Local settings\n%include ~/.hgrc_local" >> ~/.hgrc
+    echo -e "\n# Local settings\n%include ~/.hgrc_local" > ~/.hgrc
     read -p "Enter your full name: " -e FULLNAME
     read -p "Enter your email address: " -e EMAIL
     echo -e "[ui]\nusername = $FULLNAME <$EMAIL>" > ~/.hgrc_local
+    echo -e "\n[hostfingerprints]\nbitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b" >> ~/.hgrc_local
 fi
 
 # Retrieve command-line tools (if Dropbox is not present)
