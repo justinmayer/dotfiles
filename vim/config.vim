@@ -1,6 +1,7 @@
 " Basic options ----------------------------------------------------------------
 
 syntax on
+set encoding=utf-8
 set visualbell t_vb=      " Turn off bell: most annoying default ever created
 
 " User interface ---------------------------------------------------------------
