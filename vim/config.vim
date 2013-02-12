@@ -7,7 +7,9 @@ set visualbell t_vb=      " Turn off bell: most annoying default ever created
 " User interface ---------------------------------------------------------------
 
 set background=dark
-colorscheme ir_black
+if filereadable(expand("~/.vim/colors/ir_black.vim"))
+    colorscheme ir_black
+endif
 
 " Tabs and spaces --------------------------------------------------------------
 
