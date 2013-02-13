@@ -66,10 +66,6 @@ mkdir -p $HOME/.config/fish $TOOLS_HOME/vim/bundle $TOOLS_HOME/lib/hg $VIRTUALEN
 # If ~/.hgrc isn't a symlink, move it out of the way so symlink can be created
 test -L $HOME/.hgrc || mv $HOME/.hgrc $HOME/.hgrc.bak
 
-# Install Vundle
-test -d $TOOLS_HOME/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $TOOLS_HOME/vim/bundle/vundle
-SHELL=$(which sh) vim +BundleInstall +qall
-
 # Ensure symlinks
 function ensure_link {
     test -L "$HOME/$2" || ln -s "$TOOLS_HOME/$1" "$HOME/$2"
@@ -82,3 +78,7 @@ ensure_link "hgrc"                             ".hgrc"
 ensure_link "vim"                              ".vim"
 ensure_link "vim/vimrc"                        ".vimrc"
 ensure_link "vim/gvimrc"                       ".gvimrc"
+
+# Install Vundle
+test -d $TOOLS_HOME/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $TOOLS_HOME/vim/bundle/vundle
+SHELL=$(which sh) vim +BundleInstall +qall
