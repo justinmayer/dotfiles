@@ -11,6 +11,12 @@ if filereadable(expand("~/.vim/bundle/ir_black/colors/ir_black.vim"))
     colorscheme ir_black
 endif
 
+" Behaviors --------------------------------------------------------------------
+
+set showcmd               " In Visual mode, show selected characters, lines, etc
+set wildmenu              " Turn on menu-based tab completion for commands
+set autoread              " Read file if it has changed outside of Vim
+
 " Tabs and spaces --------------------------------------------------------------
 
 set shiftwidth=4          " Spaces to use for each indent step (>>, <<, etc.)
