@@ -73,6 +73,7 @@ function ensure_link {
 
 ensure_link "fish/config.fish"                 ".config/fish/config.fish"
 ensure_link "fish/functions"                   ".config/fish/functions"
+ensure_link "gitconfig"                        ".gitconfig"
 ensure_link "hgignore"                         ".hgignore"
 ensure_link "hgrc"                             ".hgrc"
 ensure_link "vim"                              ".vim"
