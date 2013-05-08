@@ -27,3 +27,4 @@ set expandtab             " Use appropriate # of spaces for <tab> in insert mode
 " Indents and wrapping
 
 set linebreak             " Soft-wrap at word instead of character
+set autoindent            " Copy indent from current line when starting new line
