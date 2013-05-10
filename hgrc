@@ -7,6 +7,10 @@ color =
 extdiff =
 hggit =
 progress =
+schemes =
+
+[schemes]
+bbs = ssh://hg@bitbucket.org/
 
 [alias]
 # Push to the git mirror at the same time
