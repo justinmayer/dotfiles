@@ -9,3 +9,4 @@ source ~/.vim/vundle.vim  " Plugins contained within are installed via Vundle
 filetype plugin indent on " Load filetype-specific indent and plugin files
 
 source ~/.vim/config.vim  " Core configuration
+source ~/.vim/keys.vim    " Keys and bindings
