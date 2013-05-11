@@ -5,3 +5,8 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+
+" Improve beginning/end-of-line jumping since I don't use default H/L behavior
+noremap H ^
+noremap L $
+vnoremap L g_
