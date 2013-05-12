@@ -28,3 +28,8 @@ set expandtab             " Use appropriate # of spaces for <tab> in insert mode
 
 set linebreak             " Soft-wrap at word instead of character
 set autoindent            " Copy indent from current line when starting new line
+
+" Searching --------------------------------------------------------------------
+
+set ignorecase            " Case-insensitive search
+set smartcase             " Case-sensitive search if query contains uppercase
