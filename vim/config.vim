@@ -16,6 +16,7 @@ endif
 set showcmd               " In Visual mode, show selected characters, lines, etc
 set wildmenu              " Turn on menu-based tab completion for commands
 set autoread              " Read file if it has changed outside of Vim
+set splitbelow splitright " More intuitive than default split behavior
 
 " Tabs and spaces --------------------------------------------------------------
 
