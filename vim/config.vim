@@ -34,3 +34,7 @@ set autoindent            " Copy indent from current line when starting new line
 
 set ignorecase            " Case-insensitive search
 set smartcase             " Case-sensitive search if query contains uppercase
+
+" Visual -----------------------------------------------------------------------
+
+set cursorline            " Highlight the line the cursor is on
