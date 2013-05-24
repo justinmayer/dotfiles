@@ -34,6 +34,7 @@ set autoindent            " Copy indent from current line when starting new line
 
 set ignorecase            " Case-insensitive search
 set smartcase             " Case-sensitive search if query contains uppercase
+set incsearch             " Show first search result as query is typed
 
 " Visual -----------------------------------------------------------------------
 
