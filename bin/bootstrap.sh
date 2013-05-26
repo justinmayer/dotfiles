@@ -41,7 +41,7 @@ if [ "$OS" = "darwin" ]; then
 
     # Install fish and make it the default shell
     if [ ! -f /usr/local/bin/fish ]; then
-        brew install fishfish
+        brew install fish
         echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
         chsh -s /usr/local/bin/fish
     fi
