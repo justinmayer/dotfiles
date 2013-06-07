@@ -10,7 +10,7 @@ prepend_to_path "/usr/local/share/python"          # Mac pip-installed binaries
 prepend_to_path "$HOME/.local/bin"
 deduplicate PATH                                   # Clear duplicates in path
 
-set BROWSER open
+
 
 set -g -x fish_greeting
 set -g -x ARCHFLAGS "-arch x86_64"
