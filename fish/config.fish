@@ -14,6 +14,7 @@ set fish_greeting
 
 set -x ARCHFLAGS "-arch x86_64"
 set -x EDITOR vim
+set -x LC_ALL en_US.UTF-8
 
 # Python variables
 
