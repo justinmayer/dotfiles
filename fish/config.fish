@@ -1,7 +1,3 @@
-# Useful aliases --------------------------------------------------------------
-
-alias serve_this "python -m SimpleHTTPServer"
-
 # Environment variables -------------------------------------------------------
 
 prepend_to_path "/usr/local/sbin"
