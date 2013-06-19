@@ -11,6 +11,7 @@ if [ "$OS" = "darwin" ]; then
     PROJECTS_HOME=$HOME/Projects
     VIRTUALENVS_HOME=$HOME/Virtualenvs
     PYHOME=/usr/local
+    chflags nohidden $HOME/Library
 
     # Install Homebrew
     if [ ! -f /usr/local/bin/brew ]; then
