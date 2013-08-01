@@ -14,5 +14,8 @@ set -x LC_ALL en_US.UTF-8
 
 # Python variables
 
-set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -x PIP_REQUIRE_VIRTUALENV "true"
+set -x PIP_USE_WHEEL "true"
+set -x PIP_WHEEL_DIR "$HOME/.pip/wheels"
+set -x PIP_FIND_LINKS "$HOME/.pip/wheels"
+set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
