@@ -15,7 +15,7 @@ if [ "$OS" = "darwin" ]; then
 
     # Install Homebrew
     if [ ! -f /usr/local/bin/brew ]; then
-        /usr/bin/ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     fi
 
     # Install basic packages
