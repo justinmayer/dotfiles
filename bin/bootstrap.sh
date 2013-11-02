@@ -62,8 +62,11 @@ fi
 test -d $TOOLS_HOME || hg clone https://bitbucket.org/j/dotfiles $TOOLS_HOME
 
 # Create needed directories
-mkdir -p $HOME/.config/fish $TOOLS_HOME/vim/bundle $TOOLS_HOME/lib/hg
+mkdir -p $HOME/.config/fish $TOOLS_HOME/vim/bundle $TOOLS_HOME/lib/{fish,hg}
 mkdir -p $HOME/.pip/{cache,wheels} $VIRTUALENVS_HOME
+
+# Install Fish libraries
+test -d $TOOLS_HOME/lib/fish/virtualfish || git clone git://github.com/justinmayer/virtualfish.git $TOOLS_HOME/lib/fish/virtualfish
 
 # If ~/.hgrc isn't a symlink, move it out of the way so symlink can be created
 test -L $HOME/.hgrc || mv $HOME/.hgrc $HOME/.hgrc.bak

@@ -22,3 +22,11 @@ set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -x PIP_TIMEOUT 15
 set -x PIP_ALLOW_ALL_EXTERNAL "false"
 set -x PIP_NO_ALLOW_INSECURE "false"
+
+set -x WORKON_HOME "$HOME/virtualenvs"
+set -g VIRTUALFISH_HOME $WORKON_HOME
+set -g VIRTUALFISH_COMPAT_ALIASES "True"
+
+if test -s $HOME/tools/lib/fish/virtualfish/virtual.fish
+    . $HOME/tools/lib/fish/virtualfish/virtual.fish
+end
