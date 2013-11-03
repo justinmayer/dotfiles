@@ -4,3 +4,4 @@ fish/completions
 fish/fish_history
 fish/fishd*
 vim/bundle
+lib
