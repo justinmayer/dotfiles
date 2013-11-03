@@ -5,7 +5,6 @@ ignore = ~/.hgignore
 [extensions]
 color =
 extdiff =
-hggit =
 progress =
 purge =
 schemes =
