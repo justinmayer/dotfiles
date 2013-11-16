@@ -7,10 +7,10 @@ export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijk
 
 if [ "$OS" = "darwin" ]; then
     export ARCHFLAGS="-arch x86_64"
+    PIP_PREFIX="/usr/local/bin/pip"
     TOOLS_HOME=$HOME/Tools
     PROJECTS_HOME=$HOME/Projects
     VIRTUALENVS_HOME=$HOME/Virtualenvs
-    PYHOME=/usr/local
     chflags nohidden $HOME/Library
 
     # Install Homebrew
@@ -19,7 +19,7 @@ if [ "$OS" = "darwin" ]; then
     fi
 
     # Install basic packages
-    for pkg in ssh-copy-id wget
+    for pkg in wget mosh ssh-copy-id
     do
         test -f /usr/local/bin/$pkg || brew install $pkg
     done
@@ -28,11 +28,8 @@ if [ "$OS" = "darwin" ]; then
     if [ ! -f /usr/local/bin/python ]; then
         brew install python --with-brewed-openssl
         PATH=/usr/local/bin:$PATH
-        $PYHOME/bin/pip install --upgrade pip setuptools
+        /usr/local/bin/pip install --upgrade pip setuptools
     fi
-
-    # Install Mercurial, hg-git, and Virtualenv:
-    PIP_REQUIRE_VIRTUALENV="" $PYHOME/bin/pip install Mercurial hg-git virtualenv
 
     # If Dropbox is present, symlink the Projects contained within
     if [ -d $HOME/Dropbox/Projects/dotfiles ]; then
@@ -44,9 +41,45 @@ if [ "$OS" = "darwin" ]; then
     if [ ! -f /usr/local/bin/fish ]; then
         brew install fish
         echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+        echo -e "\nChanging default shell to fish..."
         chsh -s /usr/local/bin/fish
     fi
 fi
+
+if [ "$OS" = "linux" ]; then
+    PIP_PREFIX="sudo /usr/local/bin/pip"
+    TOOLS_HOME=$HOME/tools
+    PROJECTS_HOME=$HOME/projects
+    VIRTUALENVS_HOME=$HOME/virtualenvs
+
+    # Install basic packages
+    for pkg in build-essential python-dev python-software-properties vim git mosh
+    do
+        sudo apt-get -y install $pkg
+    done
+
+    # Install setuptools and pip
+    if [ ! -f /usr/local/bin/easy_install ]; then
+        /usr/bin/wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python2.7
+    fi
+    if [ ! -f /usr/local/bin/pip ]; then
+        /usr/bin/wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | sudo python2.7
+    fi
+
+    # Install fish and make it the default shell
+    if [ ! -f /usr/bin/fish ]; then
+        sudo apt-add-repository -y ppa:fish-shell/release-2
+        sudo apt-get update
+        sudo apt-get -y install fish
+        echo -e "\nChanging default shell to fish..."
+        chsh -s /usr/bin/fish
+    fi
+fi
+
+# Install global Python packages
+unset PIP_REQUIRE_VIRTUALENV
+$PIP_PREFIX install Mercurial hg-git virtualenv
+export PIP_REQUIRE_VIRTUALENV="true"
 
 # Create .hgrc and .hgrc_local files if not present
 if [ ! -f ~/.hgrc ]; then
