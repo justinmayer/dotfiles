@@ -3,10 +3,10 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-export ARCHFLAGS="-arch x86_64"
 export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
 
 if [ "$OS" = "darwin" ]; then
+    export ARCHFLAGS="-arch x86_64"
     TOOLS_HOME=$HOME/Tools
     PROJECTS_HOME=$HOME/Projects
     VIRTUALENVS_HOME=$HOME/Virtualenvs
