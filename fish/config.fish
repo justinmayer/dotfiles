@@ -27,6 +27,4 @@ set -x WORKON_HOME "$HOME/virtualenvs"
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
 
-if test -s $HOME/tools/lib/fish/virtualfish/virtual.fish
-    . $HOME/tools/lib/fish/virtualfish/virtual.fish
-end
+. $HOME/tools/lib/fish/virtualfish/virtual.fish
