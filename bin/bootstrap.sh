@@ -19,7 +19,7 @@ if [ "$OS" = "darwin" ]; then
     fi
 
     # Install basic packages
-    for pkg in wget mosh ssh-copy-id
+    for pkg in wget mosh ssh-copy-id vcprompt
     do
         test -f /usr/local/bin/$pkg || brew install $pkg
     done
@@ -74,6 +74,14 @@ if [ "$OS" = "linux" ]; then
         echo -e "\nChanging default shell to fish..."
         chsh -s /usr/bin/fish
     fi
+
+    # Install vcprompt
+    if [ ! -f /usr/local/bin/vcprompt ]; then
+    wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.1.tar.gz
+    cd /tmp && tar -xzf vcprompt.tar.gz
+    cd /tmp/vcprompt-* && make
+    sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
+    fi
 fi
 
 # Install global Python packages
@@ -100,6 +108,9 @@ mkdir -p $HOME/.pip/{cache,wheels} $VIRTUALENVS_HOME
 
 # Install Fish libraries
 test -d $TOOLS_HOME/lib/fish/virtualfish || git clone git://github.com/justinmayer/virtualfish.git $TOOLS_HOME/lib/fish/virtualfish
+
+# Install hg-prompt
+test -d $TOOLS_HOME/lib/hg/hg-prompt || hg clone https://bitbucket.org/sjl/hg-prompt $TOOLS_HOME/lib/hg/hg-prompt
 
 # If ~/.hgrc isn't a symlink, move it out of the way so symlink can be created
 test -L $HOME/.hgrc || mv $HOME/.hgrc $HOME/.hgrc.bak

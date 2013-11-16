@@ -6,6 +6,7 @@ ignore = ~/.hgignore
 color =
 extdiff =
 progress =
+prompt = ~/tools/lib/hg/hg-prompt/prompt.py
 purge =
 schemes =
 
