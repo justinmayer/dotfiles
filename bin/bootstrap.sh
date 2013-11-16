@@ -71,8 +71,8 @@ if [ "$OS" = "linux" ]; then
         sudo apt-add-repository -y ppa:fish-shell/release-2
         sudo apt-get update
         sudo apt-get -y install fish
-        echo -e "\nChanging default shell to fish..."
-        chsh -s /usr/bin/fish
+        echo -e "\nChanging default shell for current user to fish..."
+        sudo chsh -s /usr/bin/fish $USER
     fi
 
     # Install vcprompt
