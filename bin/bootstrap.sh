@@ -25,7 +25,7 @@ if [ "$OS" = "darwin" ]; then
     # Install Python with up-to-date OpenSSL
     if [ ! -f /usr/local/bin/python ]; then
         brew install python --with-brewed-openssl
-        PATH=/usr/local/bin:$PATH
+        export PATH=/usr/local/bin:$PATH
         /usr/local/bin/pip install --upgrade pip setuptools
     fi
 
@@ -80,7 +80,9 @@ fi
 
 # Install global Python packages
 unset PIP_REQUIRE_VIRTUALENV
-$PIP_PREFIX install Mercurial hg-git virtualenv
+[ ! -f /usr/local/bin/virtualenv ] && $PIP_PREFIX install virtualenv
+[ ! -f /usr/local/bin/hg ] && $PIP_PREFIX install Mercurial
+[ ! -f /usr/local/bin/dulwich ] && $PIP_PREFIX install hg-git
 export PIP_REQUIRE_VIRTUALENV="true"
 
 # Create .hgrc and .hgrc_local files if not present
@@ -126,3 +128,5 @@ ensure_link "vim/gvimrc"                       ".gvimrc"
 # Install Vundle
 test -d $TOOLS_HOME/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $TOOLS_HOME/vim/bundle/vundle
 SHELL=$(which sh) vim +BundleInstall +qall
+
+printf "Bootstrap process completed.\n"
