@@ -14,14 +14,12 @@ if [ "$OS" = "darwin" ]; then
     chflags nohidden $HOME/Library
 
     # Install Homebrew
-    if [ ! -f /usr/local/bin/brew ]; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    fi
+    [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
     # Install basic packages
     for pkg in wget mosh ssh-copy-id vcprompt
     do
-        test -f /usr/local/bin/$pkg || brew install $pkg
+        [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
     done
 
     # Install Python with up-to-date OpenSSL
@@ -59,12 +57,8 @@ if [ "$OS" = "linux" ]; then
     done
 
     # Install setuptools and pip
-    if [ ! -f /usr/local/bin/easy_install ]; then
-        /usr/bin/wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python2.7
-    fi
-    if [ ! -f /usr/local/bin/pip ]; then
-        /usr/bin/wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | sudo python2.7
-    fi
+    [ ! -f /usr/local/bin/easy_install ] && /usr/bin/wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python2.7
+    [ ! -f /usr/local/bin/pip ] && /usr/bin/wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | sudo python2.7
 
     # Install fish and make it the default shell
     if [ ! -f /usr/bin/fish ]; then
@@ -77,10 +71,10 @@ if [ "$OS" = "linux" ]; then
 
     # Install vcprompt
     if [ ! -f /usr/local/bin/vcprompt ]; then
-    wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.1.tar.gz
-    cd /tmp && tar -xzf vcprompt.tar.gz
-    cd /tmp/vcprompt-* && make
-    sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
+        wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.1.tar.gz
+        cd /tmp && tar -xzf vcprompt.tar.gz
+        cd /tmp/vcprompt-* && make
+        sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
     fi
 fi
 
@@ -90,13 +84,13 @@ $PIP_PREFIX install Mercurial hg-git virtualenv
 export PIP_REQUIRE_VIRTUALENV="true"
 
 # Create .hgrc and .hgrc_local files if not present
-if [ ! -f ~/.hgrc ]; then
+if [ ! -f $HOME/.hgrc ]; then
     echo -e "\nNo ~/.hgrc detected."
-    echo -e "\n# Local settings\n%include ~/.hgrc_local" > ~/.hgrc
+    echo -e "\n# Local settings\n%include ~/.hgrc_local" > $HOME/.hgrc
     read -p "Enter your full name: " -e FULLNAME
     read -p "Enter your email address: " -e EMAIL
-    echo -e "[ui]\nusername = $FULLNAME <$EMAIL>" > ~/.hgrc_local
-    echo -e "\n[hostfingerprints]\nbitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b" >> ~/.hgrc_local
+    echo -e "[ui]\nusername = $FULLNAME <$EMAIL>" > $HOME/.hgrc_local
+    echo -e "\n[hostfingerprints]\nbitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b" >> $HOME/.hgrc_local
 fi
 
 # Retrieve command-line tools (if Dropbox is not present)
