@@ -3,3 +3,5 @@
 " Default size of window
 set columns=180
 set lines=50
+
+set guifont=Menlo\ Regular\ for\ Powerline:h12

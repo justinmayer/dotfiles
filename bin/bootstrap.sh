@@ -42,6 +42,14 @@ if [ "$OS" = "darwin" ]; then
         echo -e "\nChanging default shell to fish..."
         chsh -s /usr/local/bin/fish
     fi
+
+    # Retrieve Powerline fonts
+    if [ ! -d $HOME/Library/Fonts/Menlo\ for\ Powerline ]; then
+        mkdir -p $HOME/Library/Fonts
+        git clone git@gist.github.com:7537418.git /tmp/menlo
+        cd /tmp/menlo && unzip Menlo-for-Powerline.zip
+        mv /tmp/menlo/Menlo\ for\ Powerline $HOME/Library/Fonts/
+    fi
 fi
 
 if [ "$OS" = "linux" ]; then
@@ -83,6 +91,7 @@ unset PIP_REQUIRE_VIRTUALENV
 [ ! -f /usr/local/bin/virtualenv ] && $PIP_PREFIX install virtualenv
 [ ! -f /usr/local/bin/hg ] && $PIP_PREFIX install Mercurial
 [ ! -f /usr/local/bin/dulwich ] && $PIP_PREFIX install hg-git
+[ ! -f /usr/local/bin/powerline ] && $PIP_PREFIX install git+git://github.com/Lokaltog/powerline
 export PIP_REQUIRE_VIRTUALENV="true"
 
 # Create .hgrc and .hgrc_local files if not present
