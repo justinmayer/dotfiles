@@ -1,7 +1,3 @@
-[user]
-    name = Justin Mayer
-    email = entroP@gmail.com
-
 [alias]
     remotes = remote -v
     branches = branch -a
@@ -18,3 +14,6 @@
 
 [core]
     excludesfile = ~/.gitignore
+
+[include]
+    path = ~/.gitlocal

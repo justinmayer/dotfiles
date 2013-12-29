@@ -94,14 +94,23 @@ unset PIP_REQUIRE_VIRTUALENV
 [ ! -f /usr/local/bin/powerline ] && $PIP_PREFIX install git+git://github.com/Lokaltog/powerline
 export PIP_REQUIRE_VIRTUALENV="true"
 
+# If .hgrc or .gitlocal isn't present, ask for name and email address
+if [ ! -f $HOME/.hgrc ] || [ ! -f $HOME/.gitlocal ]; then
+    read -p "Enter your full name: " -e FULLNAME
+    read -p "Enter your email address: " -e EMAIL
+fi
+
 # Create .hgrc and .hgrc_local files if not present
 if [ ! -f $HOME/.hgrc ]; then
     echo -e "\nNo ~/.hgrc detected."
     echo -e "\n# Local settings\n%include ~/.hgrc_local" > $HOME/.hgrc
-    read -p "Enter your full name: " -e FULLNAME
-    read -p "Enter your email address: " -e EMAIL
     echo -e "[ui]\nusername = $FULLNAME <$EMAIL>" > $HOME/.hgrc_local
     echo -e "\n[hostfingerprints]\nbitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b" >> $HOME/.hgrc_local
+fi
+
+# Create .gitlocal file if not present
+if [ ! -f $HOME/.gitlocal ]; then
+    echo -e "[user]\n    name = $FULLNAME\n    email = $EMAIL" > $HOME/.gitlocal
 fi
 
 # Retrieve command-line tools (if Dropbox is not present)
