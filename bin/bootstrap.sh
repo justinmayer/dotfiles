@@ -29,10 +29,9 @@ if [ "$OS" = "darwin" ]; then
         /usr/local/bin/pip install --upgrade pip setuptools
     fi
 
-    # If Dropbox is present, symlink the Projects contained within
-    if [ -d $HOME/Dropbox/Projects/dotfiles ]; then
-        test -L "$PROJECTS_HOME" || ln -s "$HOME/Dropbox/Projects" "$PROJECTS_HOME"
-        test -L "$TOOLS_HOME" || ln -s "$HOME/Dropbox/Projects/dotfiles" "$TOOLS_HOME"
+    # If ~/Projects/dotfiles is present, symlink it to ~/Tools
+    if [ -d $PROJECTS_HOME/dotfiles ]; then
+        test -L "$TOOLS_HOME" || ln -s "$HOME/Projects/dotfiles" "$TOOLS_HOME"
     fi
 
     # Install fish and make it the default shell
@@ -113,7 +112,7 @@ if [ ! -f $HOME/.gitlocal ]; then
     echo -e "[user]\n    name = $FULLNAME\n    email = $EMAIL" > $HOME/.gitlocal
 fi
 
-# Retrieve command-line tools (if Dropbox is not present)
+# Retrieve command-line tools (if not symlinked from ~/Projects/dotfiles)
 test -d $TOOLS_HOME || hg clone https://bitbucket.org/j/dotfiles $TOOLS_HOME
 
 # Create needed directories
