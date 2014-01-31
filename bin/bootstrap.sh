@@ -17,7 +17,7 @@ if [ "$OS" = "darwin" ]; then
     [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
     # Install basic packages
-    for pkg in wget mosh ssh-copy-id vcprompt
+    for pkg in wget ssh-copy-id vcprompt
     do
         [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
     done
@@ -78,7 +78,7 @@ if [ "$OS" = "linux" ]; then
 
     # Install vcprompt
     if [ ! -f /usr/local/bin/vcprompt ]; then
-        wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.1.tar.gz
+        wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.tar.gz
         cd /tmp && tar -xzf vcprompt.tar.gz
         cd /tmp/vcprompt-* && make
         sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
