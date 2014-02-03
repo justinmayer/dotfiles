@@ -18,6 +18,7 @@ set wildmenu              " Turn on menu-based tab completion for commands
 set autoread              " Read file if it has changed outside of Vim
 set splitbelow splitright " More intuitive than default split behavior
 set noswapfile            " Not much need for swapfiles in the 21st century
+set nojoinspaces          " Use only one space after period when joining lines
 
 " Tabs and spaces --------------------------------------------------------------
 
