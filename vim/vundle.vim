@@ -13,4 +13,5 @@ Bundle 'twerth/ir_black'
 
 " Language syntax
 Bundle 'fish.vim'
+Bundle 'mitsuhiko/vim-jinja'
 Bundle 'mutewinter/nginx.vim'
