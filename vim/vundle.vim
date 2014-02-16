@@ -11,6 +11,9 @@ Bundle 'gmarik/vundle'
 " User interface
 Bundle 'twerth/ir_black'
 
+" Behaviors
+Bundle 'tpope/vim-commentary'
+
 " Language syntax
 Bundle 'fish.vim'
 Bundle 'mitsuhiko/vim-jinja'
