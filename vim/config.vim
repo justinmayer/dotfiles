@@ -42,3 +42,4 @@ set incsearch             " Show first search result as query is typed
 " Visual -----------------------------------------------------------------------
 
 set cursorline            " Highlight the line the cursor is on
+set showmatch             " Briefly jump to matching bracket when inserted
