@@ -80,7 +80,7 @@ if [ "$OS" = "linux" ]; then
     if [ ! -f /usr/local/bin/vcprompt ]; then
         wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.tar.gz
         cd /tmp && tar -xzf vcprompt.tar.gz
-        cd /tmp/vcprompt-* && make
+        cd /tmp/vcprompt-* && ./configure && make
         sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
     fi
 fi
