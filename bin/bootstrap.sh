@@ -45,7 +45,7 @@ if [ "$OS" = "darwin" ]; then
     # Retrieve Powerline fonts
     if [ ! -d $HOME/Library/Fonts/Menlo\ for\ Powerline ]; then
         mkdir -p $HOME/Library/Fonts
-        git clone git@gist.github.com:7537418.git /tmp/menlo
+        git clone https://gist.github.com/7537418.git /tmp/menlo
         cd /tmp/menlo && unzip Menlo-for-Powerline.zip
         mv /tmp/menlo/Menlo\ for\ Powerline $HOME/Library/Fonts/
     fi
