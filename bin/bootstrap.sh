@@ -58,7 +58,7 @@ if [ "$OS" = "linux" ]; then
     VIRTUALENVS_HOME=$HOME/virtualenvs
 
     # Install basic packages
-    for pkg in build-essential python-dev python-software-properties vim git mosh
+    for pkg in build-essential python-dev software-properties-common python-software-properties vim git mosh
     do
         sudo apt-get -y install $pkg
     done
@@ -78,7 +78,7 @@ if [ "$OS" = "linux" ]; then
 
     # Install vcprompt
     if [ ! -f /usr/local/bin/vcprompt ]; then
-        wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.tar.gz
+        wget -O /tmp/vcprompt.tar.gz https://bitbucket.org/gward/vcprompt/downloads/vcprompt-1.2.1.tar.gz
         cd /tmp && tar -xzf vcprompt.tar.gz
         cd /tmp/vcprompt-* && ./configure && make
         sudo cp /tmp/vcprompt-*/vcprompt /usr/local/bin/
@@ -104,7 +104,7 @@ if [ ! -f $HOME/.hgrc ]; then
     echo -e "\nNo ~/.hgrc detected."
     echo -e "\n# Local settings\n%include ~/.hgrc_local" > $HOME/.hgrc
     echo -e "[ui]\nusername = $FULLNAME <$EMAIL>" > $HOME/.hgrc_local
-    echo -e "\n[hostfingerprints]\nbitbucket.org = 67:b3:bf:9f:c5:38:0e:4c:dd:4e:8a:da:3d:11:1b:c2:a5:d1:6c:6b" >> $HOME/.hgrc_local
+    echo -e "\n[hostfingerprints]\nbitbucket.org = 45:ad:ae:1a:cf:0e:73:47:06:07:e0:88:f5:cc:10:e5:fa:1c:f7:99" >> $HOME/.hgrc_local
 fi
 
 # Create .gitlocal file if not present
