@@ -1,6 +1,6 @@
 # Environment variables -------------------------------------------------------
 
-prepend_to_path "/Applications/Postgres.app/Contents/MacOS/bin"
+prepend_to_path /Applications/Postgres.app/Contents/Versions/*/bin
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "$HOME/.local/bin"                 # Custom-compiled binaries
