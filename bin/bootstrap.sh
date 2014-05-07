@@ -22,9 +22,9 @@ if [ "$OS" = "darwin" ]; then
         [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
     done
 
-    # Install Python with up-to-date OpenSSL
+    # Install Python
     if [ ! -f /usr/local/bin/python ]; then
-        brew install python --with-brewed-openssl
+        brew install python
         export PATH=/usr/local/bin:$PATH
         /usr/local/bin/pip install --upgrade pip setuptools
     fi
