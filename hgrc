@@ -1,6 +1,7 @@
 [ui]
 editor = vim
 ignore = ~/.hgignore
+ssh = ssh -C
 
 [extensions]
 color =
