@@ -15,6 +15,6 @@ Bundle 'twerth/ir_black'
 Bundle 'tpope/vim-commentary'
 
 " Language syntax
-Bundle 'fish.vim'
+Bundle 'dag/vim-fish'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'mutewinter/nginx.vim'
