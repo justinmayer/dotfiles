@@ -15,6 +15,7 @@ Bundle 'twerth/ir_black'
 Bundle 'tpope/vim-commentary'
 
 " Language syntax
+Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'dag/vim-fish'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'mutewinter/nginx.vim'
