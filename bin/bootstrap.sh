@@ -49,6 +49,12 @@ if [ "$OS" = "darwin" ]; then
         cd /tmp/menlo && unzip Menlo-for-Powerline.zip
         mv /tmp/menlo/Menlo\ for\ Powerline $HOME/Library/Fonts/
     fi
+
+    # Install MacVim
+    if [ ! -L /Applications/Macvim.app ]; then
+        brew install macvim --override-system-vim
+        ln -s /usr/local/Cellar/macvim/*/MacVim.app /Applications/MacVim.app
+    fi
 fi
 
 if [ "$OS" = "linux" ]; then
