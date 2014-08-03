@@ -5,3 +5,4 @@ syntax: regexp
 ^Icon.$
 \.py[co]$
 \.git
+^\.venv$
