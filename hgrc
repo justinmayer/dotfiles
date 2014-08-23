@@ -6,10 +6,14 @@ ssh = ssh -C
 [extensions]
 color =
 extdiff =
+pager =
 progress =
 prompt = ~/tools/lib/hg/hg-prompt/prompt.py
 purge =
 schemes =
+
+[pager]
+pager = LESS='FRX' less -d
 
 [schemes]
 bbs = ssh://hg@bitbucket.org/
