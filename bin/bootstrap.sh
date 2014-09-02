@@ -26,7 +26,7 @@ if [ "$OS" = "darwin" ]; then
     if [ ! -f /usr/local/bin/python ]; then
         brew install python
         export PATH=/usr/local/bin:$PATH
-        /usr/local/bin/pip install --upgrade pip setuptools
+        PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip install --upgrade pip setuptools
     fi
 
     # If ~/Projects/dotfiles is present, symlink it to ~/Tools
