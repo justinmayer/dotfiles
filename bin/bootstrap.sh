@@ -17,7 +17,7 @@ if [ "$OS" = "darwin" ]; then
     [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
     # Install basic packages
-    for pkg in wget ssh-copy-id vcprompt
+    for pkg in grc ssh-copy-id vcprompt wget
     do
         [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
     done
@@ -64,7 +64,7 @@ if [ "$OS" = "linux" ]; then
     VIRTUALENVS_HOME=$HOME/virtualenvs
 
     # Install basic packages
-    for pkg in build-essential python-dev software-properties-common python-software-properties vim git mosh
+    for pkg in build-essential python-dev software-properties-common python-software-properties vim git grc
     do
         sudo apt-get -y install $pkg
     done
