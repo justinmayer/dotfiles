@@ -8,7 +8,7 @@ color =
 extdiff =
 pager =
 progress =
-prompt = ~/tools/lib/hg/hg-prompt/prompt.py
+prompt = ~/.dotfiles/lib/hg/hg-prompt/prompt.py
 purge =
 schemes =
 
