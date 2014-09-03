@@ -8,7 +8,6 @@ export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijk
 if [ "$OS" = "darwin" ]; then
     export ARCHFLAGS="-arch x86_64"
     PIP_PREFIX="/usr/local/bin/pip"
-    TOOLS_HOME=$HOME/Tools
     PROJECTS_HOME=$HOME/Projects
     VIRTUALENVS_HOME=$HOME/Virtualenvs
     chflags nohidden $HOME/Library
@@ -29,9 +28,9 @@ if [ "$OS" = "darwin" ]; then
         PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip install --upgrade pip setuptools
     fi
 
-    # If ~/Projects/dotfiles is present, symlink it to ~/Tools
+    # If ~/Projects/dotfiles is present, symlink it to ~/.dotfiles
     if [ -d $PROJECTS_HOME/dotfiles ]; then
-        test -L "$TOOLS_HOME" || ln -s "$HOME/Projects/dotfiles" "$TOOLS_HOME"
+        test -L "$HOME/.dotfiles" || ln -s "$HOME/Projects/dotfiles" "$HOME/.dotfiles"
     fi
 
     # Install fish and make it the default shell
@@ -59,7 +58,6 @@ fi
 
 if [ "$OS" = "linux" ]; then
     PIP_PREFIX="sudo /usr/local/bin/pip"
-    TOOLS_HOME=$HOME/tools
     PROJECTS_HOME=$HOME/projects
     VIRTUALENVS_HOME=$HOME/virtualenvs
 
@@ -119,25 +117,33 @@ if [ ! -f $HOME/.gitlocal ]; then
     echo -e "[user]\n    name = $FULLNAME\n    email = $EMAIL" > $HOME/.gitlocal
 fi
 
-# Retrieve command-line tools (if not symlinked from ~/Projects/dotfiles)
-test -d $TOOLS_HOME || hg clone https://bitbucket.org/j/dotfiles $TOOLS_HOME
+# Retrieve dotfiles (if not symlinked from ~/Projects/dotfiles)
+test -d $HOME/.dotfiles || hg clone https://bitbucket.org/j/dotfiles $HOME/.dotfiles
 
 # Create needed directories
-mkdir -p $HOME/.config/fish $TOOLS_HOME/vim/bundle $TOOLS_HOME/lib/{fish,hg}
+mkdir -p $HOME/.config/fish $HOME/.dotfiles/vim/bundle $HOME/.dotfiles/lib/{fish,hg}
 mkdir -p $HOME/.pip/{cache,wheels} $VIRTUALENVS_HOME
 
 # Install Fish libraries
-test -d $TOOLS_HOME/lib/fish/virtualfish || git clone git://github.com/justinmayer/virtualfish.git $TOOLS_HOME/lib/fish/virtualfish
+if [ -d $PROJECTS_HOME ]; then
+    [ -d $PROJECTS_HOME/tacklebox ] || git clone git://github.com/justinmayer/tacklebox.git $PROJECTS_HOME/tacklebox
+    [ -d $PROJECTS_HOME/tackle ] || git clone git://github.com/justinmayer/tackle.git $PROJECTS_HOME/tackle
+    [ -L $HOME/.tacklebox ] || ln -s $PROJECTS_HOME/tacklebox $HOME/.tacklebox
+    [ -L $HOME/.tackle ] || ln -s $PROJECTS_HOME/tackle $HOME/.tackle
+else
+    [ -d $HOME/.tacklebox ] || git clone git://github.com/justinmayer/tacklebox.git $HOME/.tacklebox
+    [ -d $HOME/.tackle ] || git clone git://github.com/justinmayer/tackle.git $HOME/.tackle
+fi
 
 # Install hg-prompt
-test -d $TOOLS_HOME/lib/hg/hg-prompt || hg clone https://bitbucket.org/sjl/hg-prompt $TOOLS_HOME/lib/hg/hg-prompt
+test -d $HOME/.dotfiles/lib/hg/hg-prompt || hg clone https://bitbucket.org/sjl/hg-prompt $HOME/.dotfiles/lib/hg/hg-prompt
 
 # If ~/.hgrc isn't a symlink, move it out of the way so symlink can be created
 test -L $HOME/.hgrc || mv $HOME/.hgrc $HOME/.hgrc.bak
 
 # Ensure symlinks
 function ensure_link {
-    test -L "$HOME/$2" || ln -s "$TOOLS_HOME/$1" "$HOME/$2"
+    test -L "$HOME/$2" || ln -s "$HOME/.dotfiles/$1" "$HOME/$2"
 }
 
 ensure_link "fish/config.fish"                 ".config/fish/config.fish"
@@ -151,7 +157,7 @@ ensure_link "vim/vimrc"                        ".vimrc"
 ensure_link "vim/gvimrc"                       ".gvimrc"
 
 # Install Vundle
-test -d $TOOLS_HOME/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $TOOLS_HOME/vim/bundle/vundle
+test -d $HOME/.dotfiles/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $HOME/.dotfiles/vim/bundle/vundle
 SHELL=$(which sh) vim +BundleInstall +qall
 
 printf "Bootstrap process completed.\n"

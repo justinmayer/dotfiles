@@ -1,11 +1,5 @@
 # Environment variables -------------------------------------------------------
 
-prepend_to_path /Applications/Postgres.app/Contents/Versions/*/bin
-prepend_to_path "/usr/local/sbin"
-prepend_to_path "/usr/local/bin"
-prepend_to_path "$HOME/.local/bin"                 # Custom-compiled binaries
-deduplicate PATH                                   # Clear duplicates in path
-
 set fish_greeting
 
 set -x ARCHFLAGS "-arch x86_64"
@@ -24,8 +18,21 @@ set -x PIP_ALLOW_ALL_EXTERNAL "false"
 set -x PIP_NO_ALLOW_INSECURE "false"
 
 set -x WORKON_HOME "$HOME/virtualenvs"
+set -x PROJECT_HOME "$HOME/Projects"
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
 
-. $HOME/tools/fish/functions/fish_prompt.fish
-. $HOME/tools/lib/fish/virtualfish/virtual.fish
+# Load fish functions and modules ---------------------------------------------
+
+set tacklebox_path $HOME/.tackle
+set tacklebox_modules virtualfish virtualhooks
+set tacklebox_plugins docker extract hg grc pip python up vundle
+set tacklebox_theme entropy
+source $HOME/.tacklebox/tacklebox.fish
+
+# Set PATH --------------------------------------------------------------------
+
+_prepend_path /Applications/Postgres.app/Contents/Versions/*/bin
+_prepend_path "/usr/local/sbin"
+_prepend_path "/usr/local/bin"
+_prepend_path "$HOME/.local/bin"
