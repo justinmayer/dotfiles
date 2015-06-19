@@ -122,7 +122,7 @@ test -d $HOME/.dotfiles || hg clone https://bitbucket.org/j/dotfiles $HOME/.dotf
 
 # Create needed directories
 mkdir -p $HOME/.config/fish $HOME/.dotfiles/vim/bundle $HOME/.dotfiles/lib/{fish,hg}
-mkdir -p $HOME/.pip/{cache,wheels} $VIRTUALENVS_HOME
+mkdir -p $VIRTUALENVS_HOME
 
 # Install Fish libraries
 if [ -d $PROJECTS_HOME ]; then

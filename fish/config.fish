@@ -10,8 +10,9 @@ set -x LC_ALL en_US.UTF-8
 
 set -x PIP_REQUIRE_VIRTUALENV "true"
 set -x PIP_USE_WHEEL "true"
-set -x PIP_WHEEL_DIR "$HOME/.pip/wheels"
-set -x PIP_FIND_LINKS "$HOME/.pip/wheels"
+set -x PIP_CACHE_DIR "$HOME/.cache/pip"
+set -x PIP_WHEEL_DIR "$PIP_CACHE_DIR/wheels"
+set -x PIP_FIND_LINKS "$PIP_WHEEL_DIR"
 set -x PIP_TIMEOUT 15
 set -x PIP_ALLOW_ALL_EXTERNAL "false"
 set -x PIP_NO_ALLOW_INSECURE "false"
