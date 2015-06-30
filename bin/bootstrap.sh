@@ -95,7 +95,7 @@ unset PIP_REQUIRE_VIRTUALENV
 [ ! -f /usr/local/bin/hg ] && $PIP_PREFIX install Mercurial
 [ ! -f /usr/local/bin/dulwich ] && $PIP_PREFIX install hg-git
 [ ! -f /usr/local/bin/isort ] && $PIP_PREFIX install isort
-[ ! -f /usr/local/bin/powerline ] && $PIP_PREFIX install git+git://github.com/Lokaltog/powerline
+[ ! -f /usr/local/bin/powerline ] && $PIP_PREFIX install powerline-status
 export PIP_REQUIRE_VIRTUALENV="true"
 
 # If .hgrc or .gitlocal isn't present, ask for name and email address
