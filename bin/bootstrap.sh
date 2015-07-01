@@ -16,7 +16,7 @@ if [ "$OS" = "darwin" ]; then
     [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
     # Install basic packages
-    for pkg in grc ssh-copy-id vcprompt wget
+    for pkg in git grc ssh-copy-id vcprompt wget
     do
         [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
     done
