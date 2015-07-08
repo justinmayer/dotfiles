@@ -21,6 +21,7 @@ bbs = ssh://hg@bitbucket.org/
 [alias]
 # Push to the git mirror at the same time
 pg = !"$HG" push && "$HG" push git
+show = log --color=always -pr
 
 # Local settings
 %include ~/.hgrc_local
