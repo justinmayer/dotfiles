@@ -16,5 +16,8 @@
 [core]
     excludesfile = ~/.gitignore
 
+[push]
+    default = simple
+
 [include]
     path = ~/.gitlocal
