@@ -13,6 +13,7 @@ Bundle 'twerth/ir_black'
 
 " Behaviors
 Bundle 'tpope/vim-commentary'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " Language syntax
 Bundle 'ekalinin/Dockerfile.vim'
