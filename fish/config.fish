@@ -29,6 +29,7 @@ set tacklebox_modules virtualfish virtualhooks
 set tacklebox_plugins docker extract hg grc pip python up vundle
 set tacklebox_theme entropy
 source $HOME/.tacklebox/tacklebox.fish
+source $HOME/.config/fish/iterm.fish
 
 # Set PATH --------------------------------------------------------------------
 
