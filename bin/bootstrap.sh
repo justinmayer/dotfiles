@@ -112,7 +112,7 @@ if [ ! -f $HOME/.hgrc ]; then
     echo -e "\nNo ~/.hgrc detected."
     echo -e "\n# Local settings\n%include ~/.hgrc_local" > $HOME/.hgrc
     echo -e "[ui]\nusername = $FULLNAME <$EMAIL>" > $HOME/.hgrc_local
-    echo -e "\n[hostfingerprints]\nbitbucket.org = 45:ad:ae:1a:cf:0e:73:47:06:07:e0:88:f5:cc:10:e5:fa:1c:f7:99" >> $HOME/.hgrc_local
+    echo -e "\n[hostfingerprints]\nbitbucket.org = 46:de:34:e7:9b:18:cd:7f:ae:fd:8b:e3:bc:f4:1a:5e:38:d7:ac:24" >> $HOME/.hgrc_local
 fi
 
 # Create .gitlocal file if not present
