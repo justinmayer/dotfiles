@@ -54,7 +54,7 @@ if [ "$OS" = "darwin" ]; then
 
     # Install MacVim
     if [ ! -L /Applications/Macvim.app ]; then
-        brew install macvim --override-system-vim
+        brew install macvim --with-override-system-vim
         ln -s /usr/local/Cellar/macvim/*/MacVim.app /Applications/MacVim.app
     fi
 fi
