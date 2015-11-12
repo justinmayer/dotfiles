@@ -3,4 +3,5 @@
 ._*
 .Spotlight-V100
 .Trashes
+.venv
 *.pyc
