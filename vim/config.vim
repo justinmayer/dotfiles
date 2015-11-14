@@ -31,7 +31,7 @@ set shiftround            " Round indent to multiple of shiftwidth
 set softtabstop=4         " Spaces to use for <tab> and <BS> editing operations
 set expandtab             " Use appropriate # of spaces for <tab> in insert mode
 
-" Indents and wrapping
+" Indents and wrapping ---------------------------------------------------------
 
 set linebreak             " Soft-wrap at word instead of character
 set autoindent            " Copy indent from current line when starting new line
