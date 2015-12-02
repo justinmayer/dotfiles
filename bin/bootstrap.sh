@@ -13,7 +13,7 @@ if [ "$OS" = "darwin" ]; then
     chflags nohidden $HOME/Library
 
     # Install Homebrew
-    [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     # Install basic packages
     for pkg in git grc pixz ssh-copy-id vcprompt wget
