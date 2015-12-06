@@ -25,11 +25,8 @@ if [ "$OS" = "darwin" ]; then
     [ ! -f /usr/local/bin/gtar ] && brew install gnu-tar
 
     # Install Python
-    if [ ! -f /usr/local/bin/python ]; then
-        brew install python
-        export PATH=/usr/local/bin:$PATH
-        PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip install --upgrade pip setuptools
-    fi
+    [ ! -f /usr/local/bin/python ] && brew install python
+    [ ! -f /usr/local/bin/python3 ] && brew install python3
 
     # If ~/Projects/dotfiles is present, symlink it to ~/.dotfiles
     if [ -d $PROJECTS_HOME/dotfiles ]; then
@@ -94,6 +91,7 @@ fi
 
 # Install global Python packages
 unset PIP_REQUIRE_VIRTUALENV
+$PIP_PREFIX install --upgrade pip setuptools wheel
 [ ! -f /usr/local/bin/virtualenv ] && $PIP_PREFIX install virtualenv
 [ ! -f /usr/local/bin/hg ] && $PIP_PREFIX install Mercurial
 [ ! -f /usr/local/bin/dulwich ] && $PIP_PREFIX install hg-git
