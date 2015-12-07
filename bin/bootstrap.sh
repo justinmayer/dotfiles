@@ -68,8 +68,8 @@ if [ "$OS" = "linux" ]; then
     done
 
     # Install setuptools and pip
-    [ ! -f /usr/local/bin/easy_install ] && /usr/bin/wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python2.7
-    [ ! -f /usr/local/bin/pip ] && /usr/bin/wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py -O - | sudo python2.7
+    [ ! -f /usr/local/bin/easy_install ] && /usr/bin/wget https://bootstrap.pypa.io/ez_setup.py -O - | sudo python2.7
+    [ ! -f /usr/local/bin/pip ] && /usr/bin/wget https://bootstrap.pypa.io/get-pip.py -O - | sudo python2.7
 
     # Install fish and make it the default shell
     if [ ! -f /usr/bin/fish ]; then
