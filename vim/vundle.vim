@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 Bundle 'twerth/ir_black'
 
 " Behaviors
+Bundle 'matchit.zip'
 Bundle 'tpope/vim-commentary'
 Bundle 'bronson/vim-trailing-whitespace'
 
