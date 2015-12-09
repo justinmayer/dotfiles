@@ -17,6 +17,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'bronson/vim-trailing-whitespace'
 
 " Language syntax
+Bundle 'pearofducks/ansible-vim'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'dag/vim-fish'
 Bundle 'mitsuhiko/vim-jinja'
