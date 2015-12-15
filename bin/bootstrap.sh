@@ -137,7 +137,7 @@ else
 fi
 
 # Retrieve iTerm fish shell integration
-wget -O $HOME/.dotfiles/lib/fish/iterm.fish http://iterm2.com/misc/fish_startup.in
+wget -O $HOME/.config/fish/iterm.fish http://iterm2.com/misc/fish_startup.in
 
 # Install hg-prompt
 test -d $HOME/.dotfiles/lib/hg/hg-prompt || hg clone https://bitbucket.org/sjl/hg-prompt $HOME/.dotfiles/lib/hg/hg-prompt
