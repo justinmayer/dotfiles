@@ -10,6 +10,7 @@ if [ "$OS" = "darwin" ]; then
     PIP_PREFIX="/usr/local/bin/pip"
     PROJECTS_HOME=$HOME/Projects
     VIRTUALENVS_HOME=$HOME/Virtualenvs
+    SYNC_SETTINGS=$HOME/Sync/Settings
     chflags nohidden $HOME/Library
 
     # Install Homebrew
@@ -32,6 +33,10 @@ if [ "$OS" = "darwin" ]; then
     if [ -d $PROJECTS_HOME/dotfiles ]; then
         test -L "$HOME/.dotfiles" || ln -s "$HOME/Projects/dotfiles" "$HOME/.dotfiles"
     fi
+
+    # Sync Mac-specific settings
+    test -L "$HOME/.hgrc_local" || ln -s "$SYNC_SETTINGS/Mercurial/hgrc_local" "$HOME/.hgrc_local"
+    test -L "$HOME/.gitlocal" || ln -s "$SYNC_SETTINGS/Git/gitlocal" "$HOME/.gitlocal"
 
     # Install fish and make it the default shell
     if [ ! -f /usr/local/bin/fish ]; then
