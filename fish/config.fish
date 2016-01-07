@@ -33,7 +33,7 @@ source $HOME/.config/fish/iterm.fish
 
 # Set PATH --------------------------------------------------------------------
 
-_prepend_path /Applications/Postgres.app/Contents/Versions/*/bin
+_prepend_path /Applications/Postgres.app/Contents/Versions/latest/bin
 _prepend_path "/usr/local/sbin"
 _prepend_path "/usr/local/bin"
 _prepend_path "$HOME/.local/bin"
