@@ -22,6 +22,7 @@ Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'dag/vim-fish'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'mutewinter/nginx.vim'
+Bundle 'raimon49/requirements.txt.vim'
 
 " Code checking and formatting
 Bundle 'fisadev/vim-isort'
