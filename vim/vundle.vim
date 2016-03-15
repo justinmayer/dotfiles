@@ -1,28 +1,30 @@
 " Vundle ----------------------------------------------------------------------
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugin bundles --------------------------------------------------------------
 
 " User interface
-Bundle 'twerth/ir_black'
+Plugin 'twerth/ir_black'
 
 " Behaviors
-Bundle 'matchit.zip'
-Bundle 'tpope/vim-commentary'
-Bundle 'bronson/vim-trailing-whitespace'
+Plugin 'matchit.zip'
+Plugin 'tpope/vim-commentary'
+Plugin 'bronson/vim-trailing-whitespace'
 
 " Language syntax
-Bundle 'pearofducks/ansible-vim'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'dag/vim-fish'
-Bundle 'mitsuhiko/vim-jinja'
-Bundle 'mutewinter/nginx.vim'
-Bundle 'raimon49/requirements.txt.vim'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'dag/vim-fish'
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'mutewinter/nginx.vim'
+Plugin 'raimon49/requirements.txt.vim'
 
 " Code checking and formatting
-Bundle 'fisadev/vim-isort'
+Plugin 'fisadev/vim-isort'
+
+call vundle#end()

@@ -165,7 +165,7 @@ ensure_link "vim/vimrc"                        ".vimrc"
 ensure_link "vim/gvimrc"                       ".gvimrc"
 
 # Install Vundle
-test -d $HOME/.dotfiles/vim/bundle/vundle || git clone http://github.com/gmarik/vundle.git $HOME/.dotfiles/vim/bundle/vundle
+test -d $HOME/.dotfiles/vim/bundle/Vundle.vim || git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.dotfiles/vim/bundle/Vundle.vim
 SHELL=$(which sh) vim +BundleInstall +qall
 
 printf "Bootstrap process completed.\n"
