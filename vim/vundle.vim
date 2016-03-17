@@ -25,6 +25,7 @@ Plugin 'mutewinter/nginx.vim'
 Plugin 'raimon49/requirements.txt.vim'
 
 " Code checking and formatting
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fisadev/vim-isort'
 
 call vundle#end()
