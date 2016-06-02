@@ -127,7 +127,7 @@ test -d $HOME/.dotfiles || hg clone https://bitbucket.org/j/dotfiles $HOME/.dotf
 
 # Create needed directories
 mkdir -p $HOME/.config/fish $HOME/.dotfiles/vim/bundle $HOME/.dotfiles/lib/{fish,hg}
-mkdir -p $VIRTUALENVS_HOME $HOME/.cache/pip/wheels
+mkdir -p $HOME/.local/bin $VIRTUALENVS_HOME $HOME/.cache/pip/wheels
 
 # Install Fish libraries
 if [ -d $PROJECTS_HOME ]; then
@@ -141,7 +141,9 @@ else
 fi
 
 # Retrieve iTerm fish shell integration
-wget -O $HOME/.config/fish/iterm.fish http://iterm2.com/misc/fish_startup.in
+wget -O $HOME/.config/fish/iterm.fish https://iterm2.com/misc/fish_startup.in
+wget -O $HOME/.local/bin/imgcat https://iterm2.com/imgcat; chmod +x $HOME/.local/bin/imgcat
+wget -O $HOME/.local/bin/it2dl https://iterm2.com/it2dl; chmod +x $HOME/.local/bin/it2dl
 
 # Install hg-prompt
 test -d $HOME/.dotfiles/lib/hg/hg-prompt || hg clone https://bitbucket.org/sjl/hg-prompt $HOME/.dotfiles/lib/hg/hg-prompt
