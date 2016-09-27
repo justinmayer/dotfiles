@@ -17,7 +17,7 @@ if [ "$OS" = "darwin" ]; then
     [ ! -f /usr/local/bin/brew ] && /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     # Install basic packages
-    for pkg in git grc pixz ssh-copy-id vcprompt wget
+    for pkg in git grc pixz ssh-copy-id vcprompt wget ripgrep
     do
         [ ! -f /usr/local/bin/$pkg ] && brew install $pkg
     done

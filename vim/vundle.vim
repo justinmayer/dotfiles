@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'twerth/ir_black'
 
 " Behaviors
+Plugin 'mileszs/ack.vim'
 Plugin 'matchit.zip'
 Plugin 'tpope/vim-commentary'
 Plugin 'bronson/vim-trailing-whitespace'
