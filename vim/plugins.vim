@@ -4,9 +4,15 @@
 if filereadable("/usr/local/Frameworks/Python.framework/Versions/2.7/Python")
     let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/2.7"
 endif
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+if has('python')
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
+elseif has('python3')
+    python3 from powerline.vim import setup as powerline_setup
+    python3 powerline_setup()
+    python3 del powerline_setup
+endif
 set laststatus=2                       " Always show the statusline
 
 " ack.vim: use ripgrep/ag if available ----------------------------------------
