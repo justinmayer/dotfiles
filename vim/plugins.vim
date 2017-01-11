@@ -13,7 +13,8 @@ elseif has('python3')
     python3 powerline_setup()
     python3 del powerline_setup
 endif
-set laststatus=2                       " Always show the statusline
+set laststatus=2   " Always show the statusline in all windows
+set showtabline=2  " Always display the tabline, even if there is only one tab
 
 " ack.vim: use ripgrep/ag if available ----------------------------------------
 
