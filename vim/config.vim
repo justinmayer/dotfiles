@@ -11,6 +11,9 @@ endif
 " User interface ---------------------------------------------------------------
 
 set background=dark
+if (has("termguicolors"))
+    set termguicolors
+endif
 if filereadable(expand("~/.vim/bundle/ir_black/colors/ir_black.vim"))
     colorscheme ir_black
 endif
