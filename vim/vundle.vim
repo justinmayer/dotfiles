@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " User interface
 Plugin 'twerth/ir_black'
+Plugin 'vim-airline/vim-airline'
 
 " Behaviors
 Plugin 'mileszs/ack.vim'
