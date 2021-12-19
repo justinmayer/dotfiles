@@ -1,33 +1,32 @@
-" Vundle ----------------------------------------------------------------------
+" Vim-Plug --------------------------------------------------------------------
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Plugins will be installed into the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugin bundles --------------------------------------------------------------
+" Plugins ---------------------------------------------------------------------
 
 " User interface
-Plugin 'twerth/ir_black'
-Plugin 'vim-airline/vim-airline'
+Plug 'twerth/ir_black'
+Plug 'vim-airline/vim-airline'
 
 " Behaviors
-Plugin 'mileszs/ack.vim'
-Plugin 'matchit.zip'
-Plugin 'tpope/vim-commentary'
-Plugin 'bronson/vim-trailing-whitespace'
+Plug 'mileszs/ack.vim'
+Plug 'chrisbra/matchit'
+Plug 'tpope/vim-commentary'
+Plug 'bronson/vim-trailing-whitespace'
 
 " Language syntax
-Plugin 'pearofducks/ansible-vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'dag/vim-fish'
-Plugin 'mitsuhiko/vim-jinja'
-Plugin 'mutewinter/nginx.vim'
-Plugin 'raimon49/requirements.txt.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'dag/vim-fish'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'mutewinter/nginx.vim'
+Plug 'raimon49/requirements.txt.vim'
 
 " Code checking and formatting
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fisadev/vim-isort'
+Plug 'editorconfig/editorconfig-vim'
+if has('python')
+Plug 'fisadev/vim-isort'
+endif
 
-call vundle#end()
+call plug#end()

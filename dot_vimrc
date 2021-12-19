@@ -1,13 +1,13 @@
 " .vimrc
-" Author: Justin Mayer (@jmayer)
-" Source: https://bitbucket.org/j/dotfiles/src/tip/vim/
+" Author: Justin Mayer <https://justinmayer.com>
+" Source: https://github.com/justinmayer/dotfiles/tree/main/vim
 
 set nocompatible          " Use vim instead of vi settings; this must come first
 
-source ~/.vim/vundle.vim  " Plugins contained within are installed via Vundle
+source ~/.vim/plug.vim    " Load plugins
 
 filetype plugin indent on " Load filetype-specific indent and plugin files
 
 source ~/.vim/config.vim  " Core configuration
 source ~/.vim/keys.vim    " Keys and bindings
-source ~/.vim/plugins.vim " Plugin-specific configuration
+"source ~/.vim/plugins.vim " Plugin-specific configuration
