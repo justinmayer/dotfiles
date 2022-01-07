@@ -21,6 +21,17 @@ noremap H ^
 noremap L $
 vnoremap L g_
 
+" Easy buffer navigation via CTRL-J/K/H/L
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+if $VIMSWAPJK == "true"
+    noremap <C-j> <C-w>k
+    noremap <C-k> <C-w>j
+else
+    noremap <C-j> <C-w>j
+    noremap <C-k> <C-w>k
+endif
+
 " Plugin key bindings ---------------------------------------------------------
 
 " Backslash invokes ack.vim
