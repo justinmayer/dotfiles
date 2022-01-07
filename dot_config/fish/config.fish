@@ -13,6 +13,12 @@ set -x PROJECT_HOME "$HOME/projects"
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
 
+# Homebrew variables
+
+set -gx HOMEBREW_PREFIX "/opt/homebrew"
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+
 # Load fish functions and modules ---------------------------------------------
 
 set tacklebox_path $HOME/.tackle
