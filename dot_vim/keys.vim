@@ -5,6 +5,8 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+noremap <Up> gk
+noremap <Down> gj
 
 " Improve beginning/end-of-line jumping since I don't use default H/L behavior
 noremap H ^
