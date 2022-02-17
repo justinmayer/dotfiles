@@ -21,7 +21,6 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 
 # Other variables
 
-set -gx VIMSWAPJK true
 
 # Load fish functions and modules ---------------------------------------------
 
