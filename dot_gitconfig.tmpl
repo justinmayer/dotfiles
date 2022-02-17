@@ -1,3 +1,7 @@
+[user]
+    name = {{ .fullname | quote }}
+    email = {{ .email | quote }}
+
 [alias]
     remotes = remote -v
     branches = branch -a
@@ -20,6 +24,3 @@
 
 [push]
     default = simple
-
-[include]
-    path = ~/.gitlocal
