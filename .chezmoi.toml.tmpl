@@ -1,0 +1,42 @@
+{{- $fullname := "" -}}
+{{- if hasKey . "fullname" -}}
+{{-   $fullname = .fullname -}}
+{{- else -}}
+{{-   $fullname := promptString "Full name" -}}
+{{- end -}}
+
+{{- $email := "" -}}
+{{- if hasKey . "email" -}}
+{{-   $email = .email -}}
+{{- else -}}
+{{-   $email := promptString "Email" -}}
+{{- end -}}
+
+{{- $python := "" -}}
+{{- if hasKey . "python" -}}
+{{-   $python = .python -}}
+{{- else -}}
+{{-   $python := promptString "Primary Python version" -}}
+{{- end -}}
+
+{{- $vim_swap_jk := "" -}}
+{{- if hasKey . "vim_swap_jk" -}}
+{{-   $vim_swap_jk = .vim_swap_jk -}}
+{{- else -}}
+{{-   $vim_swap_jk := promptString "Swap J/K keys (true/false)" -}}
+{{- end -}}
+
+{{- $virtualenvs := "" -}}
+{{- if hasKey . "virtualenvs" -}}
+{{-   $virtualenvs = .virtualenvs -}}
+{{- else -}}
+{{-   $virtualenvs := promptString "Virtualenvs directory name in $HOME/" -}}
+{{- end -}}
+
+
+[data]
+    fullname = {{ $fullname | quote }}
+    email = {{ $email | quote }}
+    python = {{ $python | quote }}
+    vim_swap_jk = {{ $vim_swap_jk | quote }}
+    virtualenvs = {{ $virtualenvs | quote }}
