@@ -12,3 +12,6 @@ endif
 
 " vim-airline
 let g:airline_powerline_fonts = 1
+
+" vim-startify
+let g:startify_session_persistence = 1  " Auto-save session when Vim quits

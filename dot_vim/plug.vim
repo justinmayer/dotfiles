@@ -8,6 +8,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " User interface
 Plug 'twerth/ir_black'
 Plug 'vim-airline/vim-airline'
+Plug 'mhinz/vim-startify'
 
 " Behaviors
 Plug 'mileszs/ack.vim'
