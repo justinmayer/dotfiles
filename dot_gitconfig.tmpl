@@ -23,6 +23,11 @@
         git rebase --onto $2 $(git merge-base $1 @) \
     }; f"
 
+    squash = "!f() { \
+        : git show ; \
+        git -c sequence.editor=: rebase -i ${1:-@~10}; \
+    }; f"
+
 [color]
     ui = auto
 
@@ -48,3 +53,7 @@
 
 [push]
     default = simple
+
+[rebase]
+    autosquash = true
+    autostash = true
