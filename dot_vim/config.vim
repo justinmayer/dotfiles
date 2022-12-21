@@ -5,7 +5,7 @@ set encoding=utf-8
 set visualbell t_vb=      " Turn off bell: most annoying default ever created
 
 if &shell =~# 'fish$'     " If Fish is default shell, tell Vim to use Bash.
-    set shell=/bin/bash   " Otherwise, Vundle and other tools will malfunction.
+    set shell=/bin/bash   " Otherwise, Vim-Plug and other tools may malfunction.
 endif
 
 " User interface ---------------------------------------------------------------
@@ -14,7 +14,7 @@ set background=dark
 if (has("termguicolors"))
     set termguicolors
 endif
-if filereadable(expand("~/.vim/bundle/ir_black/colors/ir_black.vim"))
+if filereadable(expand("~/.vim/plugged/ir_black/colors/ir_black.vim"))
     colorscheme ir_black
 endif
 
