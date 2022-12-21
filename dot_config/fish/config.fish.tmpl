@@ -7,7 +7,7 @@ set -x LC_ALL en_US.UTF-8
 
 # Python variables
 
-set -x WORKON_HOME "$HOME/virtualenvs"
+set -gx WORKON_HOME "{{ .virtualenv_home }}"
 set -gx PROJECT_HOME {{ if eq .chezmoi.os "darwin" }}"$HOME/Projects"{{ else }}"$HOME/projects"{{ end }}
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
