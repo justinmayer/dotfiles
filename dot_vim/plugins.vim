@@ -13,5 +13,15 @@ endif
 " vim-airline
 let g:airline_powerline_fonts = 1
 
+" Prose-related plugins
+augroup prose
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#quote#init()
+                              \ | call textobj#sentence#init()
+augroup END
+
 " vim-startify
 let g:startify_session_persistence = 1  " Auto-save session when Vim quits

@@ -15,6 +15,12 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/matchit'
 Plug 'tpope/vim-commentary'
+Plug 'preservim/vim-lexical'
+Plug 'preservim/vim-litecorrect'
+Plug 'preservim/vim-pencil'
+Plug 'preservim/vim-textobj-quote'
+Plug 'preservim/vim-textobj-sentence'
+Plug 'kana/vim-textobj-user'
 Plug 'bronson/vim-trailing-whitespace'
 
 " Syntax highlighting
