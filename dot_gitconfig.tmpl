@@ -18,6 +18,11 @@
     co = checkout
     sw = switch
 
+    movebranch = "!f() { \
+        : git checkout \
+        git rebase --onto $2 $(git merge-base $1 @) \
+    }; f"
+
 [color]
     ui = auto
 
