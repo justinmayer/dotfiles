@@ -15,7 +15,8 @@ Plug 'chrisbra/matchit'
 Plug 'tpope/vim-commentary'
 Plug 'bronson/vim-trailing-whitespace'
 
-" Language syntax
+" Syntax highlighting
+Plug 'alker0/chezmoi.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'dag/vim-fish'
