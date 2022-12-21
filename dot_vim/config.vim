@@ -51,3 +51,7 @@ set incsearch             " Show first search result as query is typed
 
 set cursorline            " Highlight the line the cursor is on
 set showmatch             " Briefly jump to matching bracket when inserted
+
+" Netrw Directory Listing ------------------------------------------------------
+
+let g:netrw_list_hide= '.*\.DS_Store$,.*\.swp$,.*\.pyc'
