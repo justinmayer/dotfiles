@@ -12,11 +12,13 @@ set -gx PROJECT_HOME {{ if eq .chezmoi.os "darwin" }}"$HOME/Projects"{{ else }}"
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
 
+{{ if eq .chezmoi.os "darwin" -}}
 # Homebrew variables
 
 set -gx HOMEBREW_PREFIX "/opt/homebrew"
 set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
 set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+{{- end }}
 
 # Other variables
 
