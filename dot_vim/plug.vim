@@ -11,7 +11,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'mhinz/vim-startify'
 
 " Behaviors
-Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/matchit'
 Plug 'tpope/vim-commentary'
 Plug 'bronson/vim-trailing-whitespace'
