@@ -11,6 +11,8 @@ set -gx WORKON_HOME {{ default "$HOME/.virtualenvs" (index . "virtualenv_home") 
 set -gx PROJECT_HOME {{ if eq .chezmoi.os "darwin" }}"$HOME/Projects"{{ else }}"$HOME/projects"{{ end }}
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
+set -g VIRTUALFISH_DEFAULT_PYTHON "$HOME/.asdf/installs/python/{{ .python }}/bin/python"
+set -gx PIPX_DEFAULT_PYTHON "$HOME/.asdf/shims/python"
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Homebrew variables
@@ -32,6 +34,9 @@ if status is-interactive
     set tacklebox_theme entropy
     source $HOME/.tacklebox/tacklebox.fish
     source $HOME/.config/fish/iterm.fish
+
+    # asdf
+    source {{ if eq .chezmoi.os "darwin" }}/opt/homebrew/opt/asdf/libexec{{ else }}$HOME/.asdf{{ end }}/asdf.fish
 end
 
 # Bindings --------------------------------------------------------------------
