@@ -30,6 +30,7 @@ Plug 'preservim/vim-textobj-quote'
 Plug 'preservim/vim-textobj-sentence'
 Plug 'kana/vim-textobj-user'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'nanotee/zoxide.vim'
 
 " Syntax highlighting
 Plug 'alker0/chezmoi.vim'
