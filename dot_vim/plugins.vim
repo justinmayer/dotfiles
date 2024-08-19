@@ -10,6 +10,9 @@ elseif executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
+" Asynchronous Lint Engine (ALE)
+let g:airline#extensions#ale#enabled = 1
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 

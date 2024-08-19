@@ -42,6 +42,7 @@ Plug 'mutewinter/nginx.vim'
 Plug 'raimon49/requirements.txt.vim'
 
 " Code checking and formatting
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 if has('python')
 Plug 'fisadev/vim-isort'
