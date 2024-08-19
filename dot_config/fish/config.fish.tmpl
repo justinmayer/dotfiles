@@ -7,6 +7,7 @@ set -gx LC_ALL en_US.UTF-8
 
 # Python variables
 
+set -gx PYTHONSTARTUP "$HOME/.pythonrc.py"
 set -gx WORKON_HOME {{ default "$HOME/.virtualenvs" (index . "virtualenv_home") | quote }}
 set -gx PROJECT_HOME {{ if eq .chezmoi.os "darwin" }}"$HOME/Projects"{{ else }}"$HOME/projects"{{ end }}
 set -g VIRTUALFISH_HOME $WORKON_HOME
