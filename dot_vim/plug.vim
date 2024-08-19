@@ -48,4 +48,7 @@ if has('python')
 Plug 'fisadev/vim-isort'
 endif
 
+" Code completion and definition lookup
+Plug 'ycm-core/YouCompleteMe'
+
 call plug#end()

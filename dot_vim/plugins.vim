@@ -28,3 +28,6 @@ augroup END
 
 " vim-startify
 let g:startify_session_persistence = 1  " Auto-save session when Vim quits
+
+" YouCompleteMe
+let g:ycm_enable_semantic_highlighting=1
