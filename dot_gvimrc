@@ -4,4 +4,4 @@
 set columns=180
 set lines=50
 
-set guifont=Menlo\ Regular\ for\ Powerline:h12
+set guifont=Hack\ Nerd\ Font:h12
