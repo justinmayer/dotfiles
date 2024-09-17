@@ -29,6 +29,11 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 # Fish functions and modules ---------------------------------------------
 
 if status is-interactive
+    # Plug.fish
+    set plugins \
+        https://github.com/kidonng/plug.fish \
+        https://github.com/justinmayer/entropy-theme
+    source $__fish_user_data_dir/plugins/plug.fish/conf.d/plugin_load.fish
 {{ if eq .chezmoi.os "darwin" -}}
     set tacklebox_path $HOME/.tackle
     set tacklebox_modules virtualfish virtualhooks
