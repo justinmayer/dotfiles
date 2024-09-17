@@ -48,7 +48,9 @@ if has('python')
 Plug 'fisadev/vim-isort'
 endif
 
+{{ if eq .chezmoi.os "darwin" -}}
 " Code completion and definition lookup
 Plug 'ycm-core/YouCompleteMe'
+{{- end }}
 
 call plug#end()
