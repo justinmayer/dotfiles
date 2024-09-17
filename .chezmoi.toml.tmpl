@@ -1,42 +1,24 @@
-{{- $fullname := "" -}}
-{{- if hasKey . "fullname" -}}
-{{-   $fullname = .fullname -}}
-{{- else -}}
-{{-   $fullname := promptString "Full name" -}}
-{{- end -}}
+{{- $fullname := promptStringOnce . "fullname" "Full name" -}}
 
-{{- $email := "" -}}
-{{- if hasKey . "email" -}}
-{{-   $email = .email -}}
-{{- else -}}
-{{-   $email := promptString "Email" -}}
-{{- end -}}
+{{- $email := promptStringOnce . "email" "Email" -}}
 
-{{- $python := "" -}}
-{{- if hasKey . "python" -}}
-{{-   $python = .python -}}
-{{- else -}}
-{{-   $python := promptString "Primary Python version" -}}
-{{- end -}}
+{{- $python := promptStringOnce . "python" "Primary Python version" -}}
 
-{{- $vim_swap_jk := "" -}}
-{{- if hasKey . "vim_swap_jk" -}}
-{{-   $vim_swap_jk = .vim_swap_jk -}}
-{{- else -}}
-{{-   $vim_swap_jk := promptString "Swap J/K keys (true/false)" -}}
-{{- end -}}
+{{- $vim_swap_jk := promptStringOnce . "vim_swap_jk" "Swap J/K keys (true/false)" -}}
 
-{{- $virtualenvs := "" -}}
-{{- if hasKey . "virtualenvs" -}}
-{{-   $virtualenvs = .virtualenvs -}}
-{{- else -}}
-{{-   $virtualenvs := promptString "Virtualenvs directory name in $HOME/" -}}
-{{- end -}}
+{{- $virtualenv_home := promptStringOnce . "virtualenv_home" "virtualenv_home directory name in $HOME/" -}}
+
+{{- $git_mergetool := promptStringOnce . "git_mergetool" "External merge tool ('kaleidoscope' or Return for none)" -}}
 
 
 [data]
     fullname = {{ $fullname | quote }}
     email = {{ $email | quote }}
+    git_mergetool = {{ $git_mergetool | quote }}
     python = {{ $python | quote }}
     vim_swap_jk = {{ $vim_swap_jk | quote }}
-    virtualenvs = {{ $virtualenvs | quote }}
+    virtualenv_home = {{ print "$HOME/" $virtualenv_home | quote }}
+{{- if eq $git_mergetool "kaleidoscope" }}
+[diff]
+    command = "ksdiff"
+{{- end }}
