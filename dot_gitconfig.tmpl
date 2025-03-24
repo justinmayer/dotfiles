@@ -45,6 +45,9 @@
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
     prompt = false
+[log]
+    # Always follow renames when checking the log for a single file
+    follow = true
 [merge]
     tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
