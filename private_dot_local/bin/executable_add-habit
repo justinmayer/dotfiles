@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Use via: `add-habit "<new habit reminder>"`
+
+CHEZMOI_DIR=$HOME/.local/share/chezmoi
+CHEZMOI_HABIT_DIR=$CHEZMOI_DIR/private_dot_local/share/habits
+CHEZMOI_HABIT_FILE=$CHEZMOI_HABIT_DIR/habits
+HABIT_DIR=$HOME/.local/share/habits
+
+# Following assumes that above directories & files exist.
+
+# Add `%` separator and new habit string to Chezmoi source `habits` file.
+echo "%" >>$CHEZMOI_HABIT_FILE
+echo "$@" >>$CHEZMOI_HABIT_FILE
+
+# Apply Chezmoi source to target, which automatically compiles the habits.dat file.
+cd $CHEZMOI_DIR
+chezmoi apply $HABIT_DIR

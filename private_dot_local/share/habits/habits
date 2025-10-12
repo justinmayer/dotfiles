@@ -1,0 +1,13 @@
+Use *z* (Zoxide) instead of *cd*.
+%
+Still using *ls*? Try using *eza* and *eza -T* instead!
+%
+Use *duf* to see disk space utilization.
+%
+Still using *man* or --help? Try using *tldr* first!
+%
+Use *rg* instead of *grep*.
+%
+Use *fif* to recursively search inside file content.
+%
+*dust* and *gdu-go* are nicer *du* replacements.

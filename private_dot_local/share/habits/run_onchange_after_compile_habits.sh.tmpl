@@ -1,0 +1,6 @@
+#!/bin/bash
+set -eu -o pipefail
+
+# Habits hash: {{ include "private_dot_local/share/habits/habits" | sha256sum }}
+
+strfile habits habits.dat
