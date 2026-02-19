@@ -12,8 +12,8 @@ set -gx WORKON_HOME {{ default "$HOME/.virtualenvs" (index . "virtualenv_home") 
 set -gx PROJECT_HOME {{ if eq .chezmoi.os "darwin" }}"$HOME/Projects"{{ else }}"$HOME/projects"{{ end }}
 set -g VIRTUALFISH_HOME $WORKON_HOME
 set -g VIRTUALFISH_COMPAT_ALIASES "True"
-set -g VIRTUALFISH_DEFAULT_PYTHON "$HOME/.asdf/installs/python/{{ .python }}/bin/python"
-set -gx PIPX_DEFAULT_PYTHON "$HOME/.asdf/shims/python"
+set -g VIRTUALFISH_DEFAULT_PYTHON "$HOME/.local/share/mise/installs/python/{{ .python }}/bin/python"
+set -gx PIPX_DEFAULT_PYTHON "$HOME/.local/share/mise/installs/python/{{ .python }}/bin/python"
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Homebrew variables
@@ -25,6 +25,8 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 
 # Other variables
 
+# Use Bat to colorize "man" pages
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # Fish functions and modules ---------------------------------------------
 
@@ -34,17 +36,18 @@ if status is-interactive
         https://github.com/kidonng/plug.fish \
         https://github.com/justinmayer/entropy-theme
     source $__fish_user_data_dir/plugins/plug.fish/conf.d/plugin_load.fish
-{{ if eq .chezmoi.os "darwin" -}}
-    set tacklebox_path $HOME/.tackle
-    set tacklebox_modules virtualfish virtualhooks
-    set tacklebox_plugins docker extract hg grc pip python up vundle
-    set tacklebox_theme entropy
-    source $HOME/.tacklebox/tacklebox.fish
+{{ if eq .chezmoi.os "darwin" }}
+    set tacklebox_path $HOME/projects/tackle
+    set tacklebox_plugins extract up
+    source $HOME/projects/tacklebox/tacklebox.fish
 {{- end }}
+
+    # Load iTerm shell integration
     source $HOME/.config/fish/iterm.fish
 
-    # asdf
-    source {{ if eq .chezmoi.os "darwin" }}/opt/homebrew/opt/asdf/libexec{{ else }}$HOME/.asdf{{ end }}/asdf.fish
+    if type -q zoxide
+        zoxide init fish | source
+    end
 end
 
 # Bindings --------------------------------------------------------------------
