@@ -1,7 +1,32 @@
+# Temporary / swap
+._*
+*.sw[op]
+*.tmp
+*.syncthing.*.tmp
+
+# Mac
 .DS_Store
 .DS_Store?
-._*
 .Spotlight-V100
 .Trashes
-.venv
-*.pyc
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.mypy_cache
+
+# Django
+db.sqlite3
+*.log
+
+# Test / coverage reports
+.coverage
+
+# Environment
+.env
+.venv/
+
+# Version control
+.jj/
