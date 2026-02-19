@@ -36,6 +36,10 @@ noremap <C-k> <C-w>k
 
 let mapleader = ","
 
+" Vertical and horizontal split then hop to a new buffer
+:noremap <Leader>v :vnew<cr>
+:noremap <Leader>h :new<cr>
+
 " Plugin key bindings ---------------------------------------------------------
 
 " Backslash invokes recursive PWD search via fzf.vim + RipGrep
