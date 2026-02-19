@@ -1,7 +1,7 @@
 " GUI options ------------------------------------------------------------------
 
 " Default size of window
-set columns=180
+set columns=182
 set lines=50
 
 set guifont=Hack\ Nerd\ Font:h12
