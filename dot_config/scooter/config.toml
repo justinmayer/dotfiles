@@ -1,0 +1,9 @@
+# Commands available on the search screen, when the search results are focussed
+[keys.search.results]
+move_down = ["k", "down", "C-n"]           # Navigate to the search result below
+move_up = ["j", "up", "C-p"]               # Navigate to the search result above
+
+# Commands available on the results screen
+[keys.results]
+scroll_errors_down = ["k", "down", "C-n"]  # Navigate to the error below
+scroll_errors_up = ["j", "up", "C-p"]      # Navigate to the error above
