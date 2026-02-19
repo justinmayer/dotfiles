@@ -18,6 +18,9 @@
     co = checkout
     sw = switch
 
+    df = "!f() { if [ $(tput cols) -gt 160 ]; then git -c 'core.pager=delta --side-by-side' diff; else git diff; fi }; f"
+    ds = "!f() { if [ $(tput cols) -gt 160 ]; then git -c 'core.pager=delta --side-by-side' diff --staged; else git diff --staged; fi }; f"
+
     movebranch = "!f() { \
         : git checkout \
         git rebase --onto $2 $(git merge-base $1 @) \
@@ -31,8 +34,24 @@
 [color]
     ui = auto
 
+[color "diff"]
+    oldMoved = bold brightmagenta "#3f0001"
+    oldMovedAlternative = bold brightmagenta "#3f0001"
+    newMoved = bold brightblue "#002800"
+    newMovedAlternative = bold brightblue "#002800"
+
 [core]
     excludesfile = ~/.gitignore
+    pager = delta
+
+[delta]
+    grep-output-type = ripgrep
+    minus-color = "#340001"
+    plus-color = "#012800"
+    syntax-theme = Monokai Extended
+
+[interactive]
+    diffFilter = delta --color-only
 
 [diff "ansible-vault"]
     textconv = ansible-vault view
