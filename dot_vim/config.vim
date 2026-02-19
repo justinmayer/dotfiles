@@ -55,3 +55,12 @@ set showmatch             " Briefly jump to matching bracket when inserted
 " Netrw Directory Listing ------------------------------------------------------
 
 let g:netrw_list_hide= '.*\.DS_Store$,.*\.swp$,.*\.pyc'
+
+" Markdown ---------------------------------------------------------------------
+
+" Markdown-link selected phrase or word under cursor to clipboard URL via ,ln
+autocmd FileType markdown nnoremap <Leader>ln ciw[<C-r>"](<Esc>"*pli)<Esc>
+autocmd FileType markdown vnoremap <Leader>ln c[<C-r>"](<Esc>"*pli)<Esc>
+" Create empty Markdown reference link for selected phrase or word under cursor
+autocmd FileType markdown nnoremap <Leader>lr ciw[<C-r>"][]<Esc>
+autocmd FileType markdown vnoremap <Leader>lr c[<C-r>"][]<Esc>
