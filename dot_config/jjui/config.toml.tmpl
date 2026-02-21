@@ -1,10 +1,38 @@
-[custom_commands]
 # https://github.com/acarapetis/jj-pre-push#usage-with-jjui
-"jj push" = { key = ["p"], args = ["push"] }
-"jj push selected bookmark(s)" = { key = ["P"], args = ["push", "-r", "$change_id"] }
+[[actions]]
+name = "jj-push"
+lua = '''
+  jj_async("push")
+  revisions.refresh()
+'''
+
+[[actions]]
+name = "jj-push-selected"
+lua = '''
+  jj_async("push", "-r", context.commit_id())
+  revisions.refresh()
+'''
+
+[[bindings]]
+action = "jj-push"
+seq = ["x", "p"]
+scope = "revisions"
+desc = "jj push"
+
+[[bindings]]
+action = "jj-push-selected"
+seq = ["x", "P"]
+scope = "revisions"
+desc = "jj push selected bookmark(s)"
 
 {{ if eq .vim_swap_jk "true" -}}
-[keys]
-  up = ["up", "j"]
-  down = ["down", "k"]
+[[bindings]]
+action = "revisions.move_up"
+key = ["up", "j"]
+scope = "revisions"
+
+[[bindings]]
+action = "revisions.move_down"
+scope = "revisions"
+key = ["down", "k"]
 {{- end }}
