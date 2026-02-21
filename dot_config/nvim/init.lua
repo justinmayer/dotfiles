@@ -1,3 +1,6 @@
+-- Remember previous window size and use for next session
+vim.g.neovide_remember_window_size = true
+
 -- Enable copy & paste via command-C & command-P
 if vim.g.neovide then
   local function save() vim.cmd.write() end
