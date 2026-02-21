@@ -1,0 +1,10 @@
+[custom_commands]
+# https://github.com/acarapetis/jj-pre-push#usage-with-jjui
+"jj push" = { key = ["p"], args = ["push"] }
+"jj push selected bookmark(s)" = { key = ["P"], args = ["push", "-r", "$change_id"] }
+
+{{ if eq .vim_swap_jk "true" -}}
+[keys]
+  up = ["up", "j"]
+  down = ["down", "k"]
+{{- end }}

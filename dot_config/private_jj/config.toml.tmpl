@@ -1,0 +1,23 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = {{ .fullname | quote }}
+email = {{ .email | quote }}
+
+[aliases]
+# Use Prek to enforce code style and formatting before push operations
+push = ["util", "exec", "--", "uvx", "--with", "prek", "jj-pre-push", "--checker", "prek", "push"]
+
+[remotes.origin]
+# Track all remote bookmarks
+auto-track-bookmarks = "glob:*"
+
+# https://github.com/jj-vcs/jj/discussions/4690#discussioncomment-12388965
+[[--scope]]
+--when.commands = ["diff"]
+
+[--scope.ui]
+# https://docs.jj-vcs.dev/latest/config/#processing-contents-to-be-paged
+pager = "delta"
+# Following is required when using `delta` as a pager
+diff-formatter = ":git"
