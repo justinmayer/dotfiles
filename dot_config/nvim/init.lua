@@ -1,3 +1,7 @@
+-- Font settings
+vim.g.have_nerd_font = true
+vim.o.guifont = "Hack Nerd Font,Noto Color Emoji:h12"
+
 -- Remember previous window size and use for next session
 vim.g.neovide_remember_window_size = true
 
