@@ -7,6 +7,9 @@ vim.g.neovide_remember_window_size = true
 
 -- Neovide-only configuration
 if vim.g.neovide then
+  -- Highlight matching pair using the system find indicator
+  vim.g.neovide_highlight_matching_pair = true
+
   -- Enable save, copy, paste, and close via cmd-S, cmd-C, cmd-P, and cmd-W
   local function save() vim.cmd.write() end
   local function copy() vim.cmd([[normal! "+y]]) end
