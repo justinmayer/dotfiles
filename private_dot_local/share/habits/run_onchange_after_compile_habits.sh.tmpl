@@ -2,5 +2,11 @@
 set -eu -o pipefail
 
 # Habits hash: {{ include "private_dot_local/share/habits/habits" | sha256sum }}
+# strfile path: {{ lookPath "strfile" }}
+
+if ! command -v strfile >/dev/null; then
+  echo "strfile not found (brew install fortune); skipping habits compilation" >&2
+  exit 0
+fi
 
 strfile habits habits.dat
