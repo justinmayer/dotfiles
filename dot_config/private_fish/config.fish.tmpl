@@ -37,9 +37,11 @@ if status is-interactive
         https://github.com/justinmayer/entropy-theme
     source $__fish_user_data_dir/plugins/plug.fish/conf.d/plugin_load.fish
 {{ if eq .chezmoi.os "darwin" }}
-    set tacklebox_path $HOME/projects/tackle
-    set tacklebox_plugins extract up
-    source $HOME/projects/tacklebox/tacklebox.fish
+    if test -f $HOME/projects/tacklebox/tacklebox.fish
+        set tacklebox_path $HOME/projects/tackle
+        set tacklebox_plugins extract up
+        source $HOME/projects/tacklebox/tacklebox.fish
+    end
 {{- end }}
 
     # Load iTerm shell integration
